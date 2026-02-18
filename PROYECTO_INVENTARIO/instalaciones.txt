@@ -1,0 +1,8 @@
+fastapi
+uvicorn
+pydantic
+pydantic-settings
+supabase
+
+#Ejecutar
+uvicorn app.main:app --reload

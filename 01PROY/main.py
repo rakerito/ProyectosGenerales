@@ -1,9 +1,11 @@
 from fastapi import FastAPI, Path, Query
+import rutas
+from fastapi.exceptions import RequestValidationError
+from exceptions import validation_exception_handler
 
 app=FastAPI()
-
-@app.get("/")#decorador, sirve para definir ruta
-@app.get("/home")
-def inicio():
-    return{"Saludo":"Hola"}
+#MANEJO DE ERRORES
+app.add_exception_handler(RequestValidationError, validation_exception_handler)
+#RUTAS
+app.include_router(rutas.router)
 
